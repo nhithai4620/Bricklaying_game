@@ -2,17 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid') //Lấy container grid
     let squares = Array.from(document.querySelectorAll('.grid div')) //Lấy các ô đơn vị
     const scoreDisplay = document.querySelector('#score') // Lấy ô điểm
-    const startBtn = document.querySelector('#start-button') //Lấy nút bắt đầu
+    const startBtn = document.querySelector('#start-button')
+    const resetBtn = document.querySelector('#reset-button') //Lấy nút bắt đầu
     const width = 10 //chiều rộng mỗi row
     let nextRandom = 0
     let timerId
     let score = 0
     const colors = [
-      'orange',
-      'red',
-      'purple',
-      'green',
-      'blue'
+      '#fff700cb',
+      'rgba(255,51,85,0.8)',
+      'rgba(217,25,255,0.8)',
+      'rgb(57,255,20,0.8)',
+      'rgba(77,77,255,0.8)'
     ]
     //Khởi tạo và select các thành phần cần thiết
   
@@ -227,6 +228,10 @@ document.addEventListener('DOMContentLoaded', () => {
         nextRandom = Math.floor(Math.random()*theTetrominoes.length)
         displayShape()
       }
+    })
+
+    resetBtn.addEventListener('click', ()=>{
+      window.location.reload();
     })
   
     //add score
